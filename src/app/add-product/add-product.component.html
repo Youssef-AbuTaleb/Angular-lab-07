@@ -1,0 +1,80 @@
+<h1>Add a new product</h1>
+<form [formGroup]="productData">
+  <div>
+    <label for="title">title</label>
+    <input type="text" name="title" id="title" formControlName="title" />
+    <p class="text-danger" *ngIf="title.invalid && title.touched">
+      This field is required
+    </p>
+  </div>
+  <div>
+    <label for="description">description</label>
+    <input
+      type="text"
+      name="description"
+      id="description"
+      formControlName="description"
+    />
+    <p class="text-danger" *ngIf="description.invalid && description.touched">
+      This field is required
+    </p>
+  </div>
+  <div>
+    <label for="imgUrl">image Url</label>
+    <input type="text" name="imgUrl" id="imgUrl" formControlName="imgUrl" />
+    <p class="text-danger" *ngIf="imgUrl.invalid && imgUrl.touched">
+      This field is required
+    </p>
+  </div>
+  <div>
+    <label for="price">price</label>
+    <input
+      type="number"
+      name="price"
+      id="price"
+      formControlName="price"
+      min="0"
+    />
+    <p class="text-danger" *ngIf="price.errors?.['required'] && price.touched">
+      This field is required
+    </p>
+    <p class="text-danger" *ngIf="price.errors?.['min'] && price.touched">
+      Price can not be less than zero!
+    </p>
+  </div>
+  <button
+    type="submit"
+    [disabled]="productData.invalid"
+    (click)="submitProductData(productData.value)"
+  >
+    submit
+  </button>
+</form>
+<button type="button" (click)="setProductData()">set data</button>
+
+<br />
+<br />
+<br />
+<form [formGroup]="myForm">
+  <div>
+    <label for="name">name</label>
+    <input type="text" name="name" id="name" formControlName="sName" />
+    {{ sName.value }} {{ sName.errors | json }}
+  </div>
+  <div>
+    <label for="email">email</label>
+    <input type="text" name="email" id="email" formControlName="email" />
+  </div>
+  <div formGroupName="address">
+    <div>
+      <label for="city">city</label>
+      <input type="text" name="city" id="city" formControlName="city" />
+    </div>
+    <div>
+      <label for="street">street</label>
+      <input type="text" name="street" id="street" formControlName="street" />
+    </div>
+  </div>
+</form>
+
+{{ myForm.value | json }}

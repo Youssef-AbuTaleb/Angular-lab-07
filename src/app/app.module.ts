@@ -18,6 +18,8 @@ import { RouteNotFoundComponent } from './route-not-found/route-not-found.compon
 import { UsersListComponent } from './users/users-list/users-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AddProductComponent } from './add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -35,8 +37,15 @@ import { LoginComponent } from './login/login.component';
     RouteNotFoundComponent,
     UsersListComponent,
     LoginComponent,
+    AddProductComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

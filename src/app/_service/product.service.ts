@@ -9,7 +9,7 @@ export class ProductService {
   private addedProductCart = new Subject<IProduct>();
   private removedProductCart = new Subject<IProduct>();
 
-  private productsList: IProduct[] = [
+  private productsList: any[] = [
     {
       id: 1,
       title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
@@ -301,5 +301,10 @@ export class ProductService {
 
   getProductById(id: number) {
     return this.productsList.find((p) => p.id == id);
+  }
+
+  appendToAllProducts(product: any) {
+    this.productsList.push(product);
+    console.log(this.productsList);
   }
 }
