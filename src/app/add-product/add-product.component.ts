@@ -50,38 +50,4 @@ export class AddProductComponent implements OnInit {
     this.router.navigate(['']);
     console.log(product);
   }
-
-  setProductData() {
-    this.productData.setValue({
-      title: 'test title',
-      description: 'test description',
-      imgUrl: 'test image url',
-      price: 2,
-    });
-  }
-
-  myForm = new FormGroup({
-    sName: new FormControl('', Validators.required),
-    email: new FormControl(),
-    address: new FormGroup({
-      city: new FormControl(),
-      street: new FormControl(),
-    }),
-  });
-
-  get sName() {
-    return this.myForm.get('sName') as FormControl;
-  }
-
-  get email() {
-    return this.myForm.get('email') as FormControl;
-  }
-
-  get city() {
-    return this.myForm.get('address.city') as FormControl;
-  }
-
-  get street() {
-    return this.myForm.get('address.street') as FormControl;
-  }
 }
