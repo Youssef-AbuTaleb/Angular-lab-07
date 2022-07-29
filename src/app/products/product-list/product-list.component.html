@@ -1,0 +1,64 @@
+<nav class="fixed-top bg-dark">
+  <ul class="nav nav-tabs">
+    <li class="nav-item text-warning my-auto mx-3 h5">Angular App</li>
+    <li class="nav-item dropdown">
+      <a
+        class="nav-link dropdown-toggle"
+        data-bs-toggle="dropdown"
+        href="#"
+        role="button"
+        aria-expanded="false"
+        >Cart</a
+      >
+      <ul
+        class="dropdown-menu"
+        style="width: 500px"
+        (click)="dropDownHandle($event)"
+      >
+        <app-product-cart></app-product-cart>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a
+        class="nav-link dropdown-toggle"
+        data-bs-toggle="dropdown"
+        href="#"
+        role="button"
+        aria-expanded="false"
+        appTextColor="yellow"
+        >Favorite</a
+      >
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+      </ul>
+    </li>
+    <label for="search" class="text-light mt-2 me-3">search</label>
+    <input
+      id="search"
+      type="text"
+      class="mt-2"
+      style="height: 25px"
+      [(ngModel)]="filterText"
+    />
+    <button
+      (click)="goToLoginPage()"
+      class="btn btn-success py-0"
+      style="height: 30px; margin-top: 5px; margin-left: 300px"
+    >
+      Login
+    </button>
+  </ul>
+</nav>
+
+<!-- Products -->
+
+<div class="row p-2" style="margin: 50px auto">
+  <app-product-card
+    style="width: 330px"
+    class="col-4"
+    *ngFor="let product of allProducts | searchArray: filterText:['title']"
+    [productsData]="product"
+  ></app-product-card>
+</div>

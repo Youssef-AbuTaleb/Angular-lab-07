@@ -1,0 +1,14 @@
+<!-- <div>
+  <h1>Cart Component</h1>
+  <ul> -->
+<li class="ps-2" *ngIf="productsCart?.length == 0">Your cart is empty</li>
+<li class="ps-2" *ngFor="let product of productsCart">
+  {{ product.title }}
+  <button class="btn btn-danger" (click)="removeProductFromCart(product)">
+    Delete
+  </button>
+  <hr />
+</li>
+<li class="ps-2" *ngIf="productsCart?.length !== 0">Add more items</li>
+<!-- </ul>
+</div> -->

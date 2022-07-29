@@ -1,0 +1,27 @@
+<div class="card m-2 bg-warning">
+  <img
+    [src]="product.image"
+    class="card-img-top"
+    alt="..."
+    style="height: 250px"
+  />
+  <div class="card-body">
+    <h5
+      style="cursor: pointer"
+      class="card-title"
+      (click)="goToDetails(product.id)"
+      appTextColor="blue"
+    >
+      {{ product.title }}
+    </h5>
+    <p class="card-text">
+      {{ product.description | sliceString }}
+      <span appTextColor="blue" id="anchor-details">...Show details</span>
+    </p>
+    <p class="text-danger">{{ product.price | currency: "USD" }}</p>
+    <button class="btn btn-primary me-1" (click)="addProductToCart(product)">
+      Add To Cart
+    </button>
+    <button class="btn btn-success ms-1">Add To Favorite</button>
+  </div>
+</div>

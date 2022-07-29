@@ -1,0 +1,13 @@
+:host {
+  color: blueviolet;
+}
+
+div {
+  background-color: antiquewhite;
+  height: 100vh;
+}
+
+img {
+  border-radius: 25px;
+  width: 500px;
+}

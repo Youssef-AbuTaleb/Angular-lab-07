@@ -1,0 +1,7 @@
+#anchor-details {
+  color: rgba(0, 0, 0, 2);
+}
+
+#anchor-details:hover {
+  cursor: pointer;
+}

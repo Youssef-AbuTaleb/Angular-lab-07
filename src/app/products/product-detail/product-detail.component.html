@@ -1,0 +1,12 @@
+<!-- <h1>{{ productData?.id }}</h1>
+<p>{{ productData?.title }}</p> -->
+<div class="row p-3 m-2 alert-warning">
+  <img class="col-4" [src]="productData?.image" style="border-radius: 25px" />
+  <div class="col">
+    <h2 class="text-danger">{{ productData?.title }}</h2>
+    <p>category: {{ productData?.category }}</p>
+    <p>price: {{ productData?.price }}</p>
+    <p class="text-dark">details: {{ productData?.description }}</p>
+    <button class="btn btn-primary" (click)="goBack()">Back To Products</button>
+  </div>
+</div>

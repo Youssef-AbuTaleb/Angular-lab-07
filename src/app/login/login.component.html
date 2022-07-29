@@ -1,0 +1,50 @@
+<div>
+  <form #myForm="ngForm" (ngSubmit)="loginTwo(myForm.value)">
+    <div>
+      <label for="username">Username</label>
+      <input
+        minlength="3"
+        type="text"
+        name="username"
+        id="username"
+        required
+        [(ngModel)]="userData.username"
+        #usernameRef="ngModel"
+      />
+      <p *ngIf="usernameRef.errors?.['minlength']" class="text-danger">
+        Username must be more than 3 charachter
+      </p>
+      <p
+        *ngIf="usernameRef.errors?.['required'] && usernameRef.touched"
+        class="text-danger"
+      >
+        Username is required
+      </p>
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input
+        minlength="8"
+        type="password"
+        name="password"
+        id="password"
+        required
+        [(ngModel)]="userData.password"
+        #passwordRef="ngModel"
+      />
+      <p *ngIf="passwordRef.errors?.['minlength']" class="text-danger">
+        Password must be more than 8 charachter
+      </p>
+      <p
+        *ngIf="passwordRef.errors?.['required'] && passwordRef.touched"
+        class="text-danger"
+      >
+        Password is required
+      </p>
+    </div>
+    <button type="submit" [disabled]="myForm.invalid">Login</button>
+    <!-- <button type="button" (click)="login()" [disabled]="myForm.invalid">
+      Login
+    </button> -->
+  </form>
+</div>
